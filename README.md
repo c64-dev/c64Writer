@@ -1,5 +1,5 @@
 # c64Writer
-Taking inspiration from zen text-editors like [Ommwriter](https://ommwriter.com/), ###c64Writer is a bare-bones cross-platform text-processor  created to look like the famous Commodore 64 BASIC environment. 
+Taking inspiration from zen text-editors like [Ommwriter](https://ommwriter.com/), **c64Writer** is a bare-bones cross-platform text-processor  created to look like the famous Commodore 64 BASIC environment. 
 The editor is kept very simple on purpose to help the writer focus on what matters most: words.
 
 ### Features
@@ -22,8 +22,10 @@ In order to update the application, open a terminal and run:
 
 ## Usage
 Go to the application's folder and run:
+'''
 python c64Writer.py
-
-or if you are in Windows
-
-python.exe c64Writer.py
+'''
+or if you are in Windows enter:
+'''
+c:\python<PYTHON_VERSION_HERE>\python.exe c64Writer.py
+'''
