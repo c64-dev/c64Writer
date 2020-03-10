@@ -22,10 +22,13 @@ In order to update the application, open a terminal and run:
 
 ## Usage
 Go to the application's folder and run:
-'''
+
+```
 python c64Writer.py
-'''
+```
+
 or if you are in Windows enter:
-'''
+
+```
 c:\python<PYTHON_VERSION_HERE>\python.exe c64Writer.py
-'''
+```
