@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>Welcome to c64Writer.</title>
+	<meta name="description" content="c64Writer is a lightweight cross-platform simple text editor designed to look like the original Commodore 64 boot screen.>
+  <meta name="author" content="Nick Louridas">
+<link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+	<div class="border2">
+	    <div class="popup">
+		<span class="popuptext" id="savePopup">File saved in Downloads folder.</span>
+		<span class="popuptext" id="copyPopup">Selection copied to Clipboard.</span>
+		<span class="popuptext" id="pastePopup">Clipboard pasted to document.</span>
+	    </div>
+	    <div class="container1">
+		<div class="titlebar">****   COMMODORE   64   WRITER   V1.2   ****</div>
+		<div class="spacer">64K RAM SYSTEM 38911 BASIC BYTES FREE</div>
+	    </div>
+	    <div class="container2"> READY.<p></p>
+		<textarea id="maintxt" class="contents" autofocus></textarea>
+	    </div>
+	    <div class="container3">Save: <input id="inputFileNameToSaveAs" value="default.txt" class="form1"></input> <button onclick="saveTextAsFile()">[ OK ]</button> * Load: <input type="file" id="fileToLoad"/><button onclick="loadFileAsText()" class="load-button">[ OK ]</button>
+	    </div>
+	</div>
+	
+<script type="text/javascript">
+    
+document.onkeyup = function(e) 
+{
+    if (e.ctrlKey && e.which == 67) {
+	var popup = document.getElementById("copyPopup");
+	popup.classList.toggle("show"); 
+	setTimeout(() =>  popup.classList.toggle("show"), 2000); 
+	}
+    else if (e.ctrlKey && e.which == 86) {
+	var popup = document.getElementById("pastePopup");
+	popup.classList.toggle("show"); 
+	setTimeout(() =>  popup.classList.toggle("show"), 2000); 
+	}
+}
+
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById("maintxt").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    
+    var popup = document.getElementById("savePopup");
+    popup.classList.toggle("show");
+    setTimeout(() =>  popup.classList.toggle("show"), 2000); 
+}
+ 
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+function loadFileAsText()
+{
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("maintxt").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+ 
+</script>
+
+</body>
+</html>
