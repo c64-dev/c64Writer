@@ -9,7 +9,11 @@ The editor is kept very simple on purpose to help the writer focus on what matte
 
 ### Installation and Updating
 1. Create a folder for the application (eg. `~/.c64Writer`).
-2. Run in a terminal:
+2. Install [pywebview](https://pypi.org/project/pywebview/) dependency.
+
+       pip install pywebview
+
+3. Run in a terminal:
 
        cd ~/.c64Writer
        git clone https://github.com/c64-dev/c64Writer.git --branch master
