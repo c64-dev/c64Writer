@@ -1,5 +1,6 @@
-# c64Writer :pencil:
-<div align="center">![Screenshot](screenshot.png)</div>
+# c64Writer ![c64](https://img1.gratispng.com/20180515/liw/kisspng-logo-commodore-64-amiga-commodore-international-co-5afaae1397b986.7238030015263780036215.jpg)
+![Screenshot](screenshot.png)
+
 Taking inspiration from zen text-editors like [Ommwriter](https://ommwriter.com/), **c64Writer** is a bare-bones cross-platform text-processor  created to look like the famous Commodore 64 BASIC environment. 
 The editor is kept very simple on purpose to help the writer focus on what matters most: words.
 
